@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<!-- Hi there, nice to see you. So you want to know how this works? Go find out at:
+https://github.com/hakimel/reveal.js -->
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Make a View with K2 - Tips and tricks for making views in Drupal 8</title>
+
+		<meta name="description" content="Presentation for Stanford Drupal Camp 2017 on Views in Drupal 8">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hook42.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1 class="text__dark text__bold">Make a View with K2!</h1>
+					<h3>Tips and tricks for making views in Drupal 8</h3>
+				</section>
+
+				<section>
+					<h1>Hook 42</h1>
+					<p><a href="http://www.hook42.com">hook42.com</a> & <a href="https://twitter.com/hook42inc">@hook42inc</a></p>
+					<ul class="ul__centered text__small">
+						<li>SEO, Multilingual, Migrations</li>
+						<li>Complex Enterprise Drupal projects</li>
+						<li>We like Douglas Adams</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Me - K2</h1>
+					<p><a href="http://www.hook42.com/team/kristin-bradham">Kristin Bradham</a> & <a href="https://twitter.com/K2Hook42">@K2Hook42</a></p>
+					<ul class="ul__centered text__small">
+						<li>Site Builder / Front End Developer</li>
+						<li>Been doing web stuff forever (not telling anymore how long)</li>
+						<li>Drupal for 5 years</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>What we're going to do</h2>
+					<ul class="ul__centered text__small">
+						<li class="fragment">NOT a step by step for a basic view</li>
+						<li class="fragment">Cool features in views not widely known</li>
+						<li class="fragment">Exposure to new ways to use views</li>
+						<li class="fragment">Tips and tricks</li>
+					</ul>
+				</section>
+
+				<section>
+					<section>
+						<h2>All My Presentations</h2>
+						<p>I like references (I'm the kid who put footnotes on their papers - nerd alert!)</p>
+						<p class="fragment">Links to more info below...</p>
+					</section>
+
+					<section>
+						<a href="http://www.hook42.com/">Hook 42 Company Site</a>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Views Settings</h2>
+						<p>Let's setup Views for success</p>
+					</section>
+					<section>
+						<h2>Setup tips for debugging</h2>
+						<ul>
+							<li>Go to Views Settings</li>
+							<li>Turn on Show SQL query</li>
+							<li>Turn on Show performance Statistics</li>
+						</ul>
+					</section>
+					<section>
+						<img src="/images/Views-Settings.png">
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Most of us have made a basic view</h3>
+						<p>Show [view_type (entity)] of type [types_of_this_entity] tagged with: [core_tags] sorted by: [views_sort]</p>
+					</section>
+					<section>
+						<!-- TODO: add screenshot-->
+						<p>Screenshot of basic view making</p>
+						<img src="/images/Views-Settings.png">
+					</section>
+					<section>
+						<!-- TODO: add screenshot-->
+						<p>Screenshot of basic view</p>
+						<img src="/images/Views-Settings.png">
+					</section>
+
+				</section>
+				<section>
+					<section>
+						<p>But this really isn't the basics of Views...</p>
+						<h3>Views Basics</h3>
+						<ul>
+							<li>View Types</li>
+							<li>Displays</li>
+							<li>Display Format</li>
+							<li>Display Settings</li>
+						</ul>
+					</section>
+					<section>
+						<img src="/images/Views-Types.png">
+					</section>
+				</section>
+
+
+				<section>
+					<h2>View Types</h2>
+					<ul>
+						<li>View types are not just content, they can be any entity, and a few non-entity extras</li>
+						<li>Make sure you choose the right view type, so that your relationships work later on</li>
+						<li>Contrib modules can add additional view types</li>
+					</ul>
+				</section>
+				<section>
+					<p>New in Drupal 8</p>
+					<h2>Log Entries</h2>
+					<ul>
+						<li>Watchdog log entries</li>
+						<li>For things like broken links</li>
+						<li>Create a view of log entries</li>
+						<li>Have to have database logging module enabled (often gets turned off in production, this deletes the view!)</li>
+					</ul>
+				</section>
+
+
+
+				<section>
+					<h2>Filters</h2>
+					<p>Filters reduce the amount of results. Or do they?</p>
+				</section>
+
+
+
+				<section>
+					<h2>Filters - Practical Tips</h2>
+					<ul>
+						<li class="fragment">This is the large set of data.</li>
+						<li class="fragment">Start by getting this correct.</li>
+						<li class="fragment">Then you can get more sophisticated with display, sorting, contextual filters and relationships.</li>
+					</ul>
+				</section>
+
+				<section>
+					<section>
+						<p>Filter Trick</p>
+						<h2>Content Filtered in Tabs</h2>
+						<p>Insert Image here</p>
+					</section>
+
+					<section>
+						<h2>Example of views in tabs</h2>
+						<p>Insert Link to example here</p>
+					</section>
+
+					<section>
+						<p>The idea for this slide came from: <a href="https://www.ostraining.com/blog/drupal/drupal-8-creating-views-of-content-in-tabs/">https://www.ostraining.com/blog/drupal/drupal-8-creating-views-of-content-in-tabs/</a>
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Sorts</h2>
+					<p>The order we want to see things in. This is pretty straight forward, but there's more here...</p>
+				</section>
+
+				<section>
+					<h2>Sorts and Exposed Filters</h2>
+					<p>This is where <em>sorts</em> get powerful. We can set up complex sorts that the user can manipulate.</p>
+				</section>
+
+				<section>
+					<h2>Relationships</h2>
+					<p>This just links two pieces of content together.</p>
+					<p>MAKE SURE YOU GO THE RIGHT WAY or you’ll take a huge performance hit.</p>
+					<p>Examples of how to use relationships here.</p>
+				</section>
+
+				<section>
+					<h2>Contextual Filters</h2>
+					<p>Filters from somewhere else (not on this content).</p>
+					<p>Where regular filters are a broad stroke, Contextual Filters are details.</p>
+				</section>
+
+				<section>
+					<h2>Contextual Filter and Relationships Workflow</h2>
+					<p>Choose Relationship</p>
+					<p>Add Contextual Filter</p>
+					<p>Apply Relationship</p>
+				</section>
+
+				<section>
+					<h1>Stretch</h1>
+					<p>Please stand up</p>
+					<p class="fragment">and chat with your neighbor</p>
+					<p class="fragment">ask them about their Drupal experience.</p>
+				</section>
+
+				<section>
+					<h2>Other Advanced Features</h2>
+					<p>Advanced Features</p>
+				</section>
+
+				<section>
+					<h2>Other Things to Consider</h2>
+					<ul>
+						<li>Name things well - so you can find them later</li>
+						<li>Do you really need a view for this?</li>
+						<li>Performance</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Naming Matters</h2>
+					<ul>
+						<li>Naming a ton of views</li>
+						<li class="fragment">Entity > Descriptor > Modifier</li>
+						<li class="fragment">Biggest to smallest</li>
+						<li class="fragment">Tags</li>
+						<li class="fragment">Either all in one, or one for all</li>
+					</ul>
+				</section>
+
+				<section>
+					<section>
+						<p>Tips and Tricks 1</p>
+						<h2>Skip the UI and use code</h2>
+						<p>Insert code for view here</p>
+					</section>
+
+					<section>
+						<h2>Example of code created view</h2>
+						<p>Insert Link to example here</p>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<p>Tips and Tricks 2</p>
+						<h2>Use Existing Views provided in Core</h2>
+						<p>For example: Enable Archive View</p>
+					</section>
+
+					<section>
+						<h2>Example of enabled archive view</h2>
+						<p>Insert Link to example here</p>
+					</section>
+
+					<section>
+						<p>The idea for this slide came from: <a href="https://www.webwash.net/build-a-blog-in-drupal-8-using-views/">https://www.webwash.net/build-a-blog-in-drupal-8-using-views/</a>
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p>Tips and Tricks 3</p>
+						<h2>Use Taxonomy Terms to expand content quickly</h2>
+						<p>Insert Image here</p>
+					</section>
+
+					<section>
+						<h2>Example of taxonomy terms view</h2>
+						<p>Insert Link to example here</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p>Tips and Tricks 4</p>
+						<h2>Use Different View Modes to make the same view look different quickly</h2>
+						<p>Insert Image here</p>
+					</section>
+
+					<section>
+						<h2>Example of same view, two Modes</h2>
+						<p>Insert Link to example here</p>
+					</section>
+				</section>
+
+
+				<section>
+					<h2>So long and thanks for all the fish!</h2>
+					<p>Questions? <a href="">Answers@hook42.com</a></p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
