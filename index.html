@@ -136,10 +136,10 @@ https://github.com/hakimel/reveal.js -->
 				<section>
 					<h2>Views Basics</h2>
 					<ul>
-						<li>View Types</li>
-						<li>Displays</li>
-						<li>Display Format</li>
-						<li>Display Settings</li>
+						<li class="fragment">View Types</li>
+						<li class="fragment">Displays</li>
+						<li class="fragment">Display Format</li>
+						<li class="fragment">Display Settings</li>
 					</ul>
 				</section>
 
@@ -147,9 +147,9 @@ https://github.com/hakimel/reveal.js -->
 				<section>
 					<h2>View Types</h2>
 					<ul>
-						<li>View types are not just content, they can be any entity, and a few non-entity extras</li>
-						<li>Make sure you choose the right view type, so that your relationships work later on</li>
-						<li>Contrib modules can add additional view types</li>
+						<li class="fragment">View types are not just content, they can be any entity, and a few non-entity extras</li>
+						<li class="fragment">Make sure you choose the right view type, so that your relationships work later on</li>
+						<li class="fragment">Contrib modules can add additional view types</li>
 					</ul>
 				</section>
 
@@ -196,24 +196,6 @@ https://github.com/hakimel/reveal.js -->
 						<li class="fragment">Start by getting this correct.</li>
 						<li class="fragment">Then you can get more sophisticated with display, sorting, contextual filters and relationships.</li>
 					</ul>
-				</section>
-
-				<section>
-					<section>
-						<p>Filter Trick</p>
-						<h2>Content Filtered in Tabs</h2>
-						<p>Insert Image here</p>
-					</section>
-
-					<section>
-						<h2>Example of views in tabs</h2>
-						<p>Insert Link to example here</p>
-					</section>
-
-					<section>
-						<p>The idea for this slide came from: <a href="https://www.ostraining.com/blog/drupal/drupal-8-creating-views-of-content-in-tabs/">https://www.ostraining.com/blog/drupal/drupal-8-creating-views-of-content-in-tabs/</a>
-						</p>
-					</section>
 				</section>
 
 				<section>
@@ -294,15 +276,20 @@ https://github.com/hakimel/reveal.js -->
 					<section>
 						<h2>Relationships</h2>
 						<p>Links two entities together</p>
-						<p class="fragments">MAKE SURE YOU GO THE RIGHT WAY or you’ll take a huge performance hit.</p>
+						<p class="text__small fragment">If there is an entity reference (this includes taxonomy terms) there can be a relationship</p>
+						<p class="text__small fragment">Without the relationship ALL the view can display is the ID of the entity that is referenced by the Entity ID</p>
 					</section>
 
 					<section>
-						<h2>Diagram of Relationships</h2>
+						<p>Diagram of Relationships</p>
+						<img src="images/Views-Drawing.svg">
 					</section>
 
 					<section>
 						<h2>One to many, many to one</h2>
+						<p class="fragment">MAKE SURE YOU GO THE RIGHT WAY or you’ll take a huge performance hit.</p>
+						<p class="fragment">Content referenced from field_job_company -- this is what you want</p>
+						<p class="fragment">Content using field_job_company -- this is the reverse relationship</p>
 					</section>
 
 				</section>
@@ -330,6 +317,11 @@ https://github.com/hakimel/reveal.js -->
 				</section>
 
 				<section>
+					<h2>Let's Make Some Views!</h2>
+					<p>Examples of views in the real world</p>
+				</section>
+
+				<section>
 					<h2>Other Things to Consider</h2>
 					<ul>
 						<li>Name things well - so you can find them later</li>
@@ -344,9 +336,28 @@ https://github.com/hakimel/reveal.js -->
 						<li>Naming a ton of views</li>
 						<li class="fragment">Entity > Descriptor > Modifier</li>
 						<li class="fragment">Biggest to smallest</li>
-						<li class="fragment">Tags</li>
+						<li class="fragment">Add Tags</li>
 						<li class="fragment">Either all in one, or one for all</li>
 					</ul>
+				</section>
+
+				<!--
+				<section>
+					<section>
+						<p>Filter Trick</p>
+						<h2>Content Filtered in Tabs</h2>
+						<p>Insert Image here</p>
+					</section>
+
+					<section>
+						<h2>Example of views in tabs</h2>
+						<p>Insert Link to example here</p>
+					</section>
+
+					<section>
+						<p>The idea for this slide came from: <a href="https://www.ostraining.com/blog/drupal/drupal-8-creating-views-of-content-in-tabs/">https://www.ostraining.com/blog/drupal/drupal-8-creating-views-of-content-in-tabs/</a>
+						</p>
+					</section>
 				</section>
 
 				<section>
@@ -405,7 +416,7 @@ https://github.com/hakimel/reveal.js -->
 						<h2>Example of same view, two Modes</h2>
 						<p>Insert Link to example here</p>
 					</section>
-				</section>
+				</section>-->
 
 
 				<section>
