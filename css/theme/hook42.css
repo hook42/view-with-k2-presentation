@@ -328,4 +328,7 @@ body {
   font-size: 120%; }
 
 .reveal .text__bold {
-  font-weight: 500; }
+  font-weight: 700; }
+
+.reveal .image__small {
+  max-width: 500px; }

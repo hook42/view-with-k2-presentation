@@ -45,6 +45,7 @@ https://github.com/hakimel/reveal.js -->
 				<section>
 					<h1 class="text__dark text__bold">Make a View with K2!</h1>
 					<h3>Tips and tricks for making views in Drupal 8</h3>
+					<p><a href="https://kristin-dev.github.io/view-with-k2-presentation/index.html">https://kristin-dev.github.io/view-with-k2-presentation/index.html</a></p>
 				</section>
 
 				<section>
@@ -64,6 +65,15 @@ https://github.com/hakimel/reveal.js -->
 						<li>Site Builder / Front End Developer</li>
 						<li>Been doing web stuff forever (not telling anymore how long)</li>
 						<li>Drupal for 5 years</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>You?</h1>
+					<ul class="ul__centered ">
+						<li class="fragment">Developer?</li>
+						<li class="fragment">Site Builder?</li>
+						<li class="fragment">New to Drupal?</li>
 					</ul>
 				</section>
 
@@ -111,33 +121,26 @@ https://github.com/hakimel/reveal.js -->
 					<section>
 						<h3>Most of us have made a basic view</h3>
 						<p>Show [view_type (entity)] of type [types_of_this_entity] tagged with: [core_tags] sorted by: [views_sort]</p>
+						<p class="text__small fragment">But this really isn't the basics of Views...</p>
 					</section>
 					<section>
-						<!-- TODO: add screenshot-->
 						<p>Screenshot of basic view making</p>
-						<img src="/images/Views-Settings.png">
+						<img src="/images/Views-Types.png">
 					</section>
 					<section>
-						<!-- TODO: add screenshot-->
 						<p>Screenshot of basic view</p>
-						<img src="/images/Views-Settings.png">
+						<img class="image__small" src="/images/Views-Basic-small.png">
 					</section>
 
 				</section>
 				<section>
-					<section>
-						<p>But this really isn't the basics of Views...</p>
-						<h3>Views Basics</h3>
-						<ul>
-							<li>View Types</li>
-							<li>Displays</li>
-							<li>Display Format</li>
-							<li>Display Settings</li>
-						</ul>
-					</section>
-					<section>
-						<img src="/images/Views-Types.png">
-					</section>
+					<h2>Views Basics</h2>
+					<ul>
+						<li>View Types</li>
+						<li>Displays</li>
+						<li>Display Format</li>
+						<li>Display Settings</li>
+					</ul>
 				</section>
 
 
@@ -149,28 +152,45 @@ https://github.com/hakimel/reveal.js -->
 						<li>Contrib modules can add additional view types</li>
 					</ul>
 				</section>
+
 				<section>
-					<p>New in Drupal 8</p>
-					<h2>Log Entries</h2>
-					<ul>
-						<li>Watchdog log entries</li>
-						<li>For things like broken links</li>
-						<li>Create a view of log entries</li>
-						<li>Have to have database logging module enabled (often gets turned off in production, this deletes the view!)</li>
-					</ul>
+					<section>
+						<h2>New in Drupal 8</h2>
+					</section>
+
+					<section>
+						<h2>Entities</h2>
+						<ul>
+							<li>Many more things are entities</li>
+							<li>Taxonomy terms are entities</li>
+							<li>More things work the same way as content in D7</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Blocks</h2>
+						<ul>
+							<li>Blocks are more powerful</li>
+							<li>Much more likely to be used in D8</li>
+							<li><a href="http://www.hook42.com/blog/block-improvements-drupal-8">Block Improvements in Drupal 8</a></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Log Entries</h2>
+						<ul>
+							<li>Watchdog log entries</li>
+							<li>For things like broken links</li>
+							<li>Create a view of log entries</li>
+						</ul>
+						<p class="text__small">Note: Have to have database logging module enabled (often gets turned off in production, this deletes the view!)</p>
+
+					</section>
+
 				</section>
-
-
 
 				<section>
 					<h2>Filters</h2>
-					<p>Filters reduce the amount of results. Or do they?</p>
-				</section>
-
-
-
-				<section>
-					<h2>Filters - Practical Tips</h2>
 					<ul>
 						<li class="fragment">This is the large set of data.</li>
 						<li class="fragment">Start by getting this correct.</li>
@@ -202,28 +222,99 @@ https://github.com/hakimel/reveal.js -->
 				</section>
 
 				<section>
-					<h2>Sorts and Exposed Filters</h2>
-					<p>This is where <em>sorts</em> get powerful. We can set up complex sorts that the user can manipulate.</p>
+
+					<section>
+						<h2>Sorts and Exposed Filters</h2>
+						<p>This is where <em>sorts</em> get powerful. We can set up complex sorts that the user can manipulate.</p>
+					</section>
+
+					<section>
+						<h2>Adding an exposed filter</h2>
+						<ul>
+							<li>Step</li>
+							<li>Step</li>
+							<li>Step</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Video of adding exposed filter</h2>
+					</section>
+
 				</section>
 
 				<section>
-					<h2>Relationships</h2>
-					<p>This just links two pieces of content together.</p>
-					<p>MAKE SURE YOU GO THE RIGHT WAY or you’ll take a huge performance hit.</p>
-					<p>Examples of how to use relationships here.</p>
+
+					<section>
+						<h2>Contextual Filters</h2>
+						<p>Filters from somewhere else (not on this content)</p>
+						<p>Where regular filters are a broad stroke, Contextual Filters are details.</p>
+					</section>
+
+					<section>
+						<p>Screenshot of Contextual Filters</p>
+						<img class="image__small" src="/images/Contextual-Filter.png">
+					</section>
+
+					<section>
+						<h3>Basic Contextual Filter Options:</h3>
+						<ol class="text__small">
+							<li>What the filter should do if there isn't a value in the URL</li>
+							<li>What the filter should do if there is a value, (and therefore include any default values from the first section)</li>
+							<li>Some other options that are independent of how the value gets set</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Some Options Explained:</h3>
+						<ul class="text__small">
+							<li><span class="text__bold">Content ID from URL:</span> 333 from '/node/333'</li>
+							<li><span class="text__bold">Taxonomy Term ID:</span> 444 from '/taxonomy/term/444'</li>
+							<li><span class="text__bold">User ID from logged in user:</span> 555 from '/user/555' (note: anonymous is 0)</li>
+							<li><span class="text__bold">User ID from route context:</span> User ID from D8 Symphony, can also look at author ID</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>More Options Explained:</h3>
+						<ul>
+							<li><span class="text__bold">Raw value from the URL:</span> each slash is an argument<br>
+							So: argument '2' would be 'structure' from '/admin/structure/types' </li>
+							<li><span class="text__bold">Query parameters:</span> each query is an argument<br>
+							So: argument 'harry' would be '777' from /admin/structure/types/?harry=777&sally=888</li>
+							<li><span class="text__bold">Fixed:</span> any 'hardcoded' value (not flexible, I just want to say the value right here)</li>
+						</ul>
+					</section>
+
 				</section>
 
-				<section>
-					<h2>Contextual Filters</h2>
-					<p>Filters from somewhere else (not on this content).</p>
-					<p>Where regular filters are a broad stroke, Contextual Filters are details.</p>
-				</section>
 
 				<section>
-					<h2>Contextual Filter and Relationships Workflow</h2>
-					<p>Choose Relationship</p>
-					<p>Add Contextual Filter</p>
-					<p>Apply Relationship</p>
+
+					<section>
+						<h2>Relationships</h2>
+						<p>Links two entities together</p>
+						<p class="fragments">MAKE SURE YOU GO THE RIGHT WAY or you’ll take a huge performance hit.</p>
+					</section>
+
+					<section>
+						<h2>Diagram of Relationships</h2>
+					</section>
+
+					<section>
+						<h2>One to many, many to one</h2>
+					</section>
+
+				</section>
+
+
+				<section>
+					<h3>Contextual Filter and Relationships Workflow</h3>
+					<ol>
+						<li>Choose Relationship</li>
+						<li>Add Contextual Filter</li>
+						<li>Apply Relationship</li>
+					</ol>
 				</section>
 
 				<section>
